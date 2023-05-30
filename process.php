@@ -1,4 +1,6 @@
 <?php
+require_once('database.php');
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Retrieve form data
   $firstName = $_POST['first-name'];
@@ -35,6 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "<a href='index.php'>Go back</a>";
     exit;
   }
+
+  // If there are no errors, display the registration details
   else{
     echo "<h2>Registration Details:</h2>";
     echo "<p><strong>First Name:</strong> " . $firstName . "</p>";
@@ -47,21 +51,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "<p><strong>Hobbies:</strong> " . (is_array($hobbies) ? implode(", ", $hobbies) : $hobbies) . "</p>";
   }
 
+  // Define database connection parameters
   $host = 'localhost';
   $user = 'root';
   $password = '';
   $database = 'TI-cz1';
-  
+
+  // Connect to database
   $connection = mysqli_connect($host, $user, $password, $database);
-  
+
   // Check connection
-  if (!$connection) {
-      die("Connection failed: " . mysqli_connect_error());
-  }
-  else {
-    echo "Connected successfully to $database <br>";
-  }
-  
+  checkConnection($connection, $database);
+
   // Prepare the SQL query
   $sql = "INSERT INTO users (firstName, lastName, login, password, email, address, education, hobbies) 
           VALUES ('$firstName', '$lastName', '$login', '$password', '$email', '$address', '$education', '$hobbies')";
