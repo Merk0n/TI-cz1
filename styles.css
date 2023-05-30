@@ -5,7 +5,7 @@ form {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-sizing: border-box; /* Include padding and border in the total width */
+  box-sizing: border-box;
 }
 
 h1 {
@@ -26,7 +26,7 @@ textarea {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 3px;
-  box-sizing: border-box; /* Include padding and border in the total width */
+  box-sizing: border-box;
 }
 
 input[type="radio"],
@@ -68,13 +68,5 @@ input[type="submit"] {
 
   input[type="submit"] {
     font-size: 14px;
-  }
-  
-  /* Adjust input width for smaller screens */
-  input[type="text"],
-  input[type="password"],
-  input[type="email"],
-  textarea {
-    width: 100%;
   }
 }
