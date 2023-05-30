@@ -61,7 +61,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $connection = mysqli_connect($host, $user, $password, $database);
 
   // Check connection
-  checkConnection($connection, $database);
+  if (!$connection) {
+    die("Connection failed: " . mysqli_connect_error());
+  }
+  else {
+    echo "Connected successfully to $database <br>";
+  }
 
   // Prepare the SQL query
   $sql = "INSERT INTO users (firstName, lastName, login, password, email, address, education, hobbies) 
