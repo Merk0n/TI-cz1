@@ -37,11 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
   }
 
-  // save hobbies as a string
-  if (is_array($hobbies)) {
-    $hobbies = implode(",", $hobbies);
-  }
-
   // If there are no errors, display the registration details
   else{
     echo "<h2>Registration Details:</h2>";
@@ -53,6 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "<p><strong>Address:</strong> " . $address . "</p>";
     echo "<p><strong>Education:</strong> " . $education . "</p>";
     echo "<p><strong>Hobbies:</strong> " . (is_array($hobbies) ? implode(",", $hobbies) : $hobbies) . "</p>";
+  }
+
+  // save hobbies as a string
+  if (is_array($hobbies)) {
+    $hobbies = implode(",", $hobbies);
   }
 
   // Define database connection parameters
