@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "<p><strong>Email:</strong> " . $email . "</p>";
     echo "<p><strong>Address:</strong> " . $address . "</p>";
     echo "<p><strong>Education:</strong> " . $education . "</p>";
-    echo "<p><strong>Hobbies:</strong> " . (is_array($hobbies) ? implode(", ", $hobbies) : $hobbies) . "</p>";
+    echo "<p><strong>Hobbies:</strong> " . (is_array($hobbies) ? implode(",", $hobbies) : $hobbies) . "</p>";
   }
 
   // Define database connection parameters
