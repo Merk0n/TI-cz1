@@ -37,6 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
   }
 
+  // save hobbies as a string
+  if (is_array($hobbies)) {
+    $hobbies = implode(",", $hobbies);
+  }
+
   // If there are no errors, display the registration details
   else{
     echo "<h2>Registration Details:</h2>";
